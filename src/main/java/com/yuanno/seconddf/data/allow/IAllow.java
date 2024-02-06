@@ -10,4 +10,7 @@ public interface IAllow {
 
     void setTwoDevilFruits(boolean twoDevilFruits);
     boolean hasTwoDevilFruits();
+
+    void setSecondFruit(String fruit);
+    String getSecondFruit();
 }

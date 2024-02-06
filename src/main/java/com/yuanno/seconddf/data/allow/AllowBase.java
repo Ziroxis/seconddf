@@ -7,6 +7,7 @@ public class AllowBase implements IAllow {
     private LivingEntity owner;
     private boolean hasAllow = false;
     private boolean hasTwoDevilFruits = false;
+    private String secondFruit = "";
 
     @Override
     public IAllow setOwner(LivingEntity owner) {
@@ -32,4 +33,12 @@ public class AllowBase implements IAllow {
         return this.hasTwoDevilFruits;
     }
 
+    @Override
+    public void setSecondFruit(String fruit) {
+        this.secondFruit = fruit;
+    }
+    @Override
+    public String getSecondFruit() {
+        return this.secondFruit;
+    }
 }

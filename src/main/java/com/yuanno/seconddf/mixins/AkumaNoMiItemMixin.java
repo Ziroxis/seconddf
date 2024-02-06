@@ -145,8 +145,10 @@ public class AkumaNoMiItemMixin {
 
                 if (devilFruitProps.hasDevilFruit()) {
                     allow.setTwoDevilFruits(true);
-                    WyNetwork.sendTo(new SSyncAllowPacket(player.getId(), allow), player);
                 }
+                else
+                    allow.setSecondFruit(eatenItem.getFruitKey());
+                WyNetwork.sendTo(new SSyncAllowPacket(player.getId(), allow), player);
                 devilFruitProps.setDevilFruit(eatenItem);
                 WyNetwork.sendTo(new SSyncDevilFruitPacket(player.getId(), devilFruitProps), player);
             }

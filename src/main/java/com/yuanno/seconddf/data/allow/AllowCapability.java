@@ -25,6 +25,7 @@ public class AllowCapability {
 
                 props.putBoolean("hasAllow", instance.hasAllow());
                 props.putBoolean("hasTwoDevilFruits", instance.hasTwoDevilFruits());
+                props.putString("secondFruit", instance.getSecondFruit());
 
                 return props;
             }
@@ -35,7 +36,7 @@ public class AllowCapability {
 
                 instance.setAllow(props.getBoolean("hasAllow"));
                 instance.setTwoDevilFruits(props.getBoolean("hasTwoDevilFruits"));
-
+                instance.setSecondFruit(props.getString("secondFruit"));
             }
         }, () -> new AllowBase());
     }
