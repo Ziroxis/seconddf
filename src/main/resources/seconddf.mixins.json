@@ -7,7 +7,7 @@
     "AkumaNoMiItemMixin"
   ],
   "client": [
-    "PlayerStatsScreenMixin"
+    "client.PlayerStatsScreenMixin"
   ],
   "server": [],
   "injectors": {

@@ -1,4 +1,4 @@
-package com.yuanno.seconddf.mixins;
+package com.yuanno.seconddf.mixins.client;
 
 import com.google.common.base.Strings;
 import com.mojang.blaze3d.matrix.MatrixStack;

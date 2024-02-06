@@ -42,7 +42,7 @@ import xyz.pixelatedw.mineminenomi.wypi.WyNetwork;
 public class AkumaNoMiItemMixin {
 
     @Inject(method = "finishUsingItem", at = @At("HEAD"), remap = false, cancellable = true)
-    private void onCompleteCreation(ItemStack itemStack, World world, LivingEntity livingEntity, CallbackInfoReturnable<ItemStack> cir) {
+    public void onCompleteCreation(ItemStack itemStack, World world, LivingEntity livingEntity, CallbackInfoReturnable<ItemStack> cir) {
         Main.LOGGER.info("Eating devil fruit");
         if (!(livingEntity instanceof PlayerEntity))
             cir.setReturnValue(itemStack);

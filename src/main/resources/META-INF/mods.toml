@@ -5,6 +5,7 @@ license="${mod_license}"
 [[mods]] #mandatory
 modId="seconddf" #mandatory
 version="${mod_version}" #mandatory
+ordering="AFTER"
 displayName="${mod_name}" #mandatory
 authors="${mod_authors}" #optional
 description='''${mod_description}'''
@@ -16,3 +17,4 @@ mandatory = true
 versionRange = "[0.9.5,)"
 ordering = "BEFORE"
 side = "SERVER"
+
