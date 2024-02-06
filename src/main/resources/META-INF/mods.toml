@@ -14,5 +14,5 @@ description='''${mod_description}'''
 modId = "mineminenomi"
 mandatory = true
 versionRange = "[0.9.5,)"
-ordering = "AFTER"
+ordering = "BEFORE"
 side = "SERVER"
