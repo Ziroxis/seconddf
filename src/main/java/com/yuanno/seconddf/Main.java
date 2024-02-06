@@ -1,5 +1,7 @@
 package com.yuanno.seconddf;
 
+import com.yuanno.seconddf.init.ModCapabilities;
+import com.yuanno.seconddf.init.ModNetwork;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -39,6 +41,9 @@ public class Main
     }
 
     private void setup(final FMLCommonSetupEvent event) {
+        ModCapabilities.init();
+        ModNetwork.init();
+
     }
     private void doClientStuff(final FMLClientSetupEvent event) {
     }
