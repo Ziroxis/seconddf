@@ -75,7 +75,7 @@ public class AkumaNoMiItemMixin {
             flag |= !worldData.updateOneFruit(eatenFruit, player.getUUID(), OneFruitEntry.Status.IN_USE);
             if(CommonConfig.INSTANCE.hasOneFruitPerWorldSimpleLogic() && flag)
             {
-                Main.LOGGER.info("Check 1");
+                Main.LOGGER.debug("Check 1");
                 player.sendMessage(new TranslationTextComponent(ModI18n.ITEM_MESSAGE_FRUIT_ALREADY_USED), Util.NIL_UUID);
                 itemStack.shrink(1);
                 cir.setReturnValue(itemStack);
@@ -85,7 +85,7 @@ public class AkumaNoMiItemMixin {
             // kills player if the player is not allowed to have two fruits and has two devil fruits
             if(!CommonConfig.INSTANCE.isYamiPowerEnabled() && hasFruit && !allow.hasAllow() || allow.hasTwoDevilFruits())
             {
-                Main.LOGGER.info("Check 2");
+                Main.LOGGER.debug("Check 2");
                 this.applyCurseDeath(player);
                 itemStack.shrink(1);
                 cir.setReturnValue(itemStack);
@@ -96,7 +96,7 @@ public class AkumaNoMiItemMixin {
                 // If the player eats any fruit besides yami and it currently doesn't have Yami ate: death
                 // ex: mera + pika = death
                 // plus a check if it has already two devil fruits and the player is not allowed to have two fruits
-                Main.LOGGER.info("Check 3");
+                Main.LOGGER.debug("Check 3");
                 if(hasFruit && !allow.hasAllow() || allow.hasTwoDevilFruits())
                 {
                     this.applyCurseDeath(player);
