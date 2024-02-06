@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 public class Main
 {
     // Directly reference a log4j logger.
-    public static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger(Main.MOD_ID);
     public static final String MOD_ID = "seconddf";
 
     public Main() {
