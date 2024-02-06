@@ -38,7 +38,7 @@ import xyz.pixelatedw.mineminenomi.packets.server.SSyncDevilFruitPacket;
 import xyz.pixelatedw.mineminenomi.packets.server.SSyncEntityStatsPacket;
 import xyz.pixelatedw.mineminenomi.wypi.WyNetwork;
 
-@Mixin(value = AkumaNoMiItem.class, priority = 5)
+@Mixin(value = AkumaNoMiItem.class, priority = 990)
 public class AkumaNoMiItemMixin {
 
     @Inject(method = "finishUsingItem", at = @At("HEAD"), remap = false, cancellable = true)
