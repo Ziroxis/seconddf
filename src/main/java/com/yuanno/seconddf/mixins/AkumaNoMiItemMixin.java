@@ -14,6 +14,7 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -41,16 +42,20 @@ import xyz.pixelatedw.mineminenomi.wypi.WyNetwork;
 @Mixin(value = AkumaNoMiItem.class, priority = 990)
 public class AkumaNoMiItemMixin {
 
-    @Inject(method = "finishUsingItem", at = @At("HEAD"), remap = false, cancellable = true)
-    public void onCompleteCreation(ItemStack itemStack, World world, LivingEntity livingEntity, CallbackInfoReturnable<ItemStack> cir) {
+    /**
+     * @author Beosti
+     * @reason fuck it we ballin'
+     */
+    @Overwrite
+    public ItemStack finishUsingItem(ItemStack itemStack, World world, LivingEntity livingEntity) {
         Main.LOGGER.info("Eating devil fruit");
         if (!(livingEntity instanceof PlayerEntity))
-            cir.setReturnValue(itemStack);
+            return itemStack;
 
         PlayerEntity player = (PlayerEntity) livingEntity;
         EatDevilFruitEvent.Pre preEvent = new EatDevilFruitEvent.Pre(player, itemStack);
         if (MinecraftForge.EVENT_BUS.post(preEvent))
-            cir.setReturnValue(itemStack);
+            return itemStack;
 
         if (!player.level.isClientSide)
         {
@@ -78,7 +83,7 @@ public class AkumaNoMiItemMixin {
                 Main.LOGGER.error("Check 1");
                 player.sendMessage(new TranslationTextComponent(ModI18n.ITEM_MESSAGE_FRUIT_ALREADY_USED), Util.NIL_UUID);
                 itemStack.shrink(1);
-                cir.setReturnValue(itemStack);
+                return itemStack;
             }
 
             // kills player yami or not if config not enabled
@@ -88,7 +93,7 @@ public class AkumaNoMiItemMixin {
                 Main.LOGGER.error("Check 2");
                 this.applyCurseDeath(player);
                 itemStack.shrink(1);
-                cir.setReturnValue(itemStack);
+                return itemStack;
             }
 
             if(CommonConfig.INSTANCE.isYamiPowerEnabled())
@@ -102,7 +107,7 @@ public class AkumaNoMiItemMixin {
                     this.applyCurseDeath(player);
                     itemStack.shrink(1);
                     worldData.lostOneFruit(eatenFruit, player.getUUID(), "Devil Fruit's Curse");
-                    cir.setReturnValue(itemStack);
+                    return itemStack;
                 }
             }
 
@@ -162,7 +167,7 @@ public class AkumaNoMiItemMixin {
 
         itemStack.shrink(1);
 
-        cir.setReturnValue(itemStack);
+        return itemStack;
     }
 
     private void applyCurseDeath(PlayerEntity player)
