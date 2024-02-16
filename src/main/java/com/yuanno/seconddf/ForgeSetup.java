@@ -2,6 +2,7 @@ package com.yuanno.seconddf;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.yuanno.seconddf.commands.AllowSecondDevilfruitCommand;
+import com.yuanno.seconddf.commands.RemoveAllDFCommand;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
@@ -14,5 +15,6 @@ public class ForgeSetup {
     {
         CommandDispatcher dispatcher = event.getServer().getCommands().getDispatcher();
         AllowSecondDevilfruitCommand.register(dispatcher);
+        RemoveAllDFCommand.register(dispatcher);
     }
 }

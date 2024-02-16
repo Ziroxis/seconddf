@@ -4,7 +4,22 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "second-df.refmap.json",
   "mixins": [
-    "AkumaNoMiItemMixin"
+    "AkumaNoMiItemMixin",
+    "BariPassiveEventMixins",
+    "GomuPassiveEventsMixins",
+    "ItoPassiveEventsMixins",
+    "KageMixinEvents",
+    "KiloPassiveMixinEvents",
+    "KukuPassiveMixinEvents",
+    "MaguPassiveMixinEvents",
+    "MoguPassiveEventMixins",
+    "NetsuPassiveEventMixins",
+
+    "SuiPassiveEventMixins",
+    "SunaPassiveMixinEvents",
+    "YomiPassiveMixinEvents",
+    "ZushiPassiveMixinEvents"
+
   ],
   "client": [
     "client.PlayerStatsScreenMixin"
