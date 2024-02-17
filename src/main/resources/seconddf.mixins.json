@@ -5,7 +5,8 @@
   "refmap": "second-df.refmap.json",
   "mixins": [
     "AkumaNoMiItemMixin",
-    "BariPassiveEventMixins",
+    "HardenedSnowBlockMixin",
+
     "GomuPassiveEventsMixins",
     "ItoPassiveEventsMixins",
     "KageMixinEvents",
@@ -14,7 +15,6 @@
     "MaguPassiveMixinEvents",
     "MoguPassiveEventMixins",
     "NetsuPassiveEventMixins",
-
     "SuiPassiveEventMixins",
     "SunaPassiveMixinEvents",
     "YomiPassiveMixinEvents",

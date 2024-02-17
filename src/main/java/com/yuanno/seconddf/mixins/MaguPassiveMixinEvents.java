@@ -67,6 +67,7 @@ public class MaguPassiveMixinEvents {
         ci.cancel();
     }
 
+    /*
     @Inject(method = "onEntityInLava", at = @At("HEAD"), remap = false, cancellable = true)
     private static void onEntityInLava(EntityViewRenderEvent.FogDensity event, CallbackInfo ci) {
         PlayerEntity player = Minecraft.getInstance().player;
@@ -83,4 +84,8 @@ public class MaguPassiveMixinEvents {
 
         ci.cancel();
     }
+
+     */
+
+
 }

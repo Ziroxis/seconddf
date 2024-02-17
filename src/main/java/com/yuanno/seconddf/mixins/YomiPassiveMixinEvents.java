@@ -62,6 +62,7 @@ import java.awt.*;
 @Mixin(value = YomiPassiveEvents.class)
 public class YomiPassiveMixinEvents {
 
+    /*
     @Inject(method = "onRenderOverlay", at = @At("HEAD"), remap = false, cancellable = true)
     private static void onRenderOverlay(RenderGameOverlayEvent.Pre event, CallbackInfo ci)
     {
@@ -73,6 +74,8 @@ public class YomiPassiveMixinEvents {
             event.setCanceled(true);
         ci.cancel();
     }
+    
+     */
 
     @Inject(method = "onClonePlayer", at = @At("HEAD"), remap = false, cancellable = true)
     private static void onClonePlayer(PlayerEvent.Clone event, CallbackInfo ci)
@@ -90,6 +93,8 @@ public class YomiPassiveMixinEvents {
         }
         ci.cancel();
     }
+
+
 
     @Inject(method = "onEntityUpdate", at = @At("HEAD"), remap = false, cancellable = true)
     private static void onEntityUpdate(LivingEvent.LivingUpdateEvent event, CallbackInfo ci)
@@ -163,6 +168,7 @@ public class YomiPassiveMixinEvents {
         ci.cancel();
     }
 
+
     @Inject(method = "onEntityRendered", at = @At("HEAD"), remap = false, cancellable = true)
     private static void onEntityRendered(RenderLivingEvent.Pre event, CallbackInfo ci)
     {
@@ -230,6 +236,8 @@ public class YomiPassiveMixinEvents {
         ci.cancel();
     }
 
+
+
     @Inject(method = "onDrinkMilk", at = @At("HEAD"), remap = false, cancellable = true)
     private static void onDrinkMilk(LivingEntityUseItemEvent.Finish event, CallbackInfo ci)
     {
@@ -237,8 +245,8 @@ public class YomiPassiveMixinEvents {
             return;
 
         IDevilFruit devilFruitProps = DevilFruitCapability.get(event.getEntityLiving());
-
-        if (!devilFruitProps.hasDevilFruit(ModAbilities.YOMI_YOMI_NO_MI))
+        IAllow allow = AllowCapability.get(event.getEntityLiving());
+        if (!devilFruitProps.hasDevilFruit(ModAbilities.YOMI_YOMI_NO_MI) && !allow.getSecondFruit().equals("yomi_yomi"))
             return;
 
         if (event.getItem().getItem() == Items.MILK_BUCKET && YomiMorphInfo.INSTANCE.isActive(event.getEntityLiving()))
